@@ -1,0 +1,29 @@
+﻿th{
+    height:50px;
+    width:50px;
+    border: 0px #000 solid;
+    background:#dbd189;
+}
+table {
+    margin-left:300px;
+}
+.white {
+    height: 50px;
+    width: 50px;
+    border: 0px #000 solid;
+    background:#dbd189;
+    background-image: url(image/白子.png);
+    background-repeat:no-repeat;
+}
+.black {
+    height: 50px;
+    width: 50px;
+    border: 0px #000 solid;
+    background:#dbd189;
+    background-image: url(image/黑子.png);
+    background-repeat:no-repeat;
+}
+#newStart {
+   margin-left:500px;
+}
+
