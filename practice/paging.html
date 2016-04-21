@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>分页</title>
+</head>
+<body>
+<div id="showData">
+   <!-- <span id="name" style="color: red"></span>
+    <span id="age" style="color: blue"></span>-->
+</div>
+<button id="prePage">上一页</button>
+<button id="nextPage">下一页</button>
+</body>
+<script>
+    //构造本地数据
+    var localData = [
+        {"name":"linlin1","age":"20"},
+        {"name":"linlin2","age":"20"},
+        {"name":"linlin3","age":"20"},
+        {"name":"linlin4","age":"20"},
+        {"name":"linlin5","age":"20"},
+        {"name":"linlin6","age":"20"},
+        {"name":"linlin7","age":"20"},
+        {"name":"linlin8","age":"20"},
+        {"name":"linlin9","age":"20"},
+        {"name":"linlin10","age":"20"}
+    ];
+    //使用一个全局变量来记录当前页数
+    var currentPage = 1;
+    var pageNumber = 2; //每页2条数据
+    paging(currentPage,pageNumber);
+
+
+    //======================
+    //显示数据
+    function showData(dataList){
+        var len = dataList.length; //把数组length放在变量中 不需要每次循环的时候都去计算数组长度 提高执行效率
+        var htmlStr = "";
+        for(var i =0;i<len;i++){
+            htmlStr += ' <span id="name" style="color: red">'+dataList[i].name+'</span> ' +
+            '<span id="age" style="color: blue">'+dataList[i].age+'</span></br>'
+        }
+        document.getElementById("showData").innerHTML = htmlStr;
+    }
+
+    //
+   function  paging(currentPage,pageNumber){
+       console.log(currentPage+"   "+pageNumber);
+       var startNumber = (currentPage-1)*pageNumber;
+       //取余数
+       var lastPageNumber = localData.length%pageNumber;
+        //这个地方还需要判断最后一页是否有足够的数据 然后定义endNumber 省了没写
+       var endNumber =  currentPage*pageNumber;
+       console.log(startNumber+"   "+endNumber);
+
+       var newList  = localData.slice(startNumber,endNumber);  //slice方法使用查看下面的连接
+      //http://www.w3school.com.cn/jsref/jsref_slice_array.asp
+       console.log(newList);
+       showData(newList);
+   }
+
+    //点击上一页
+    document.getElementById("prePage").onclick = function(){
+        if(currentPage==1){
+            alert("没有上一页了");
+        }else{
+            currentPage --;
+            paging(currentPage,pageNumber);
+
+        }
+    };
+
+    //点击下一页
+    document.getElementById("nextPage").onclick = function(){
+        //这里就没有去判断最后一页了
+        currentPage++;
+        paging(currentPage,pageNumber);
+    };
+</script>
+
+
+</html>

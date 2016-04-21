@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+ <!--声明当前页面编码集（中文编码<gbk,gb2312>,国际编码<utf-8>）-->
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <!--声明当前页面的三要素-->
+ <title>showLogin</title>
+ <meta name="keywords" content="关键词,关键词">
+ <meta name="description" content="">
+
+ <!--css/js-->
+
+<script type="text/javascript">
+function showLogin() {
+var loginDiv = document.getElementById("loginDiv");
+loginDiv.style.display ='';
+}
+function hideLogin() {
+var loginDiv = document.getElementById("loginDiv");
+loginDiv.style.display ='none';
+}
+</script>
+</head>
+<body>
+<a href="javascript:showLogin()">登录</a>
+<div style="position: absolute; top: 200px; left: 200px; border-style: solid; border-color: Blue;
+border-width: thin;display:none;" id="loginDiv">
+<img src="images/close.JPG" onclick="hideLogin()" style="float: right"/>
+<table>
+<tr>
+<td>
+<label for="username">
+用户名：</label>
+</td>
+<td>
+<input type="text" id="username"/>
+</td>
+</tr>
+<tr>
+<td>
+<label for="password">
+密码：</label>
+</td>
+<td>
+<input type="password" id="passwordpassword"/>
+</td>
+</tr>
+</table>
+</div>
+</body>
