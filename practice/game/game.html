@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+ <!--声明当前页面编码集（中文编码<gbk,gb2312>,国际编码<utf-8>）-->
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <!--声明当前页面的三要素-->
+ <title>猜拳游戏</title>
+ <meta name="keywords" content="关键词,关键词">
+ <meta name="description" content="">
+
+ <!--css/js-->
+
+</head>
+
+<body>
+  <div id="container">
+			<ul>
+				<li>
+					<p id="userName">我</p>
+					<div class="user animate"></div>
+				</li>
+				<li>
+					<p id="compName">电脑</p>
+					<div class="computer animate"></div>
+				</li>
+			</ul>
+			<div class="play">
+				<button id="opbtn" onclick = "game.play();">开&nbsp;始</button>
+				<br/><br/><br/>
+				<div id="result"></div>
+			</div>
+		</div>
+		<ul id="switch">
+			<li>
+				<div class="guess0" onclick = "game.verdict(0)">石头</div>
+			</li>
+			<li>
+				<div class="guess1" onclick = "game.verdict(1)">剪刀</div>
+			</li>
+			<li>
+				<div class="guess2" onclick = "game.verdict(2)">布</div>
+			</li>
+		</ul>
+	  
+	
+	</div>
+  </div>
+
+
+
+</body>
+
+</html>
