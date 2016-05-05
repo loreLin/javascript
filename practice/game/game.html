@@ -11,10 +11,29 @@
  <!--css/js-->
 <style type="text/css">
 html,body{width:100%;height:100%;background-color:rgba(253, 217, 227,.2);}
-ul,li,p,br{margin:0;padding:0;font-family:'迷你简卡通';}
+body,ul,li,p,br,button{margin:0;padding:0;font-family:'迷你简卡通';}
 ul{list-style:none;}
-#container{width:800px;height:600px;margin:auto;border:1px solid red;}
-#container{width:100%;height:62%;border:1px solid blue;}
+#container{width:800px;height:600px;margin:auto;}
+#container ul{width:100%;height:62%;}
+#container ul li{width:50%;height:100%;float:left;text-align:center;}
+#container ul li div{width:223px;height:337px;margin:auto;border:10px solid rgb(254, 123,163);border-radius:50%;background-position:center;background-repeat:no-repeat;}
+#container ul li p{margin:10px 0px;font-size:30px;}
+#container ul li div.user{background-image:url('images/readyl.png');}
+#container ul li div.computer{background-image:url('images/readyr.png');}
+#container div.play{text-align:center;}
+#container div.play button{border:10px solid rgb(254, 123, 163);border-radius:50%;background-color:rgb(253, 217, 227);height:60px;width:200px;font-size:24px;font-weight:bold;color:rgb(134, 123, 117);cursor:pointer;}
+#container div.play button.disabled{border:10px solid #bbb;color:#bbb;}
+#container div.play button:hover{border-color:red;font-size:34px;color:rgb(51,43,41);}
+#container div.play button.disabled:hover{border:10px solid #bbb;font-size:24px;color:#bbb;}
+#switch{position:fixed;top:0px;left:0px;bottom:0px;display:none;}
+#switch li{width:200px;height:30%;border-radius:50%;border:10px solid rgb(254, 123, 163);cursor:pointer;}
+#switch li:hover{background-color:rgb(254, 123, 163);}
+#switch li div{width:100%;height:100%;text-align:center;font-size:30px;background-position:center;background-repeat:no-repeat;}
+#result{font-size:50px;text-align:center;width:100%;}
+#container ul li div.guess0,#switch li div.guess0{background-image:url('images/1.png');}
+#container ul li div.guess1,#switch li div.guess1{background-image:url('images/2.png');}
+#container ul li div.guess2,#switch li div.guess2{background-image:url('images/3.png');}
+
 </style>
 </head>
 
@@ -52,7 +71,9 @@ ul{list-style:none;}
 	</div>
   </div>
 
-
+<script>
+  function.prototype.extends = 
+</script>
 
 </body>
 
