@@ -72,7 +72,98 @@ ul{list-style:none;}
   </div>
 
 <script>
-  function.prototype.extends = 
+  function.prototype.extends = function(Clazz,extend){
+	for(var prop in Clazz.peototype){
+	  this.prototype[prop] = Clazz.prototype[prop];
+	}
+	for(var prop in extend){
+	    this.prototype[prop]=extend[prop];
+	}
+  }
+  function player(name){
+    this.name = name;
+  }
+  player.prototype.guess = function(){}
+  player.prototype.draw = function(){}
+
+  function User(name){
+    player.call(this,name);
+  }
+  User.extends(player,{
+    guess : function(point){
+	  return this,point = point;
+	}
+  });
+
+  function Comp(name){
+    player.call(this,name);
+  }
+  Comp.extends(Player,{
+	guess : function(){
+		return this.point = (Math.random()*1000<<0)%3;
+	}
+  });
+  function GuessGame(user,comp){
+	this.user = user;
+	this.comp = comp;
+	this.init();
+  }
+  GuessGame.prototype.play = function(){
+    this.start();
+	this.startAnimate();
+  }
+  GuessGame.prototype.start = function(){
+    document.getElementById('result').innerHTML = '';
+	var opbtn = document.getElementById('opbtn');
+	opbtn.className = 'disabled';
+	opbtn.innerText = '游戏中...';
+	opbtn.disabled = true;
+	document.getElementById('switch').style.display='block';
+  }
+  GuessGame.prototype.end = function(){
+    var opbtn = document.getElementById('opbtn');
+	opbtn.className = '';
+	opbtn.innerHTML = '再来一局';
+	opbtn.disabled = false;
+	document.getElementById('switch').style.display='none';
+	window.clearInterval(this._interval);
+  }
+  GuessGame.prototype.startAnimate = function(){
+	var animats = document.getElementsByClassName('animate');
+	var serial = 0;
+	this._interval = window.setInterval(function(){
+		animats[0].className = "user animate guess"+(serial++)%3;
+		animats[1].className = "user animate guess"+(serial++)%3;
+		,200);
+	}
+  GuessGame.prototype.verdict = function(point){
+	var animats = document.getElementsByClassName('animate');
+	animats[0].className = "user animate guess"+this.user.guess(point);
+	animats[1].className = "user animate guess"+this.comp.guess();
+	var res = this.user.point - this.comp.point;
+	var result = document.getElementById('result');
+	switch(res){
+		case 0:
+		result.innerText = '平局！！！';
+		break;
+		case 1:
+		case -2:
+		result.innerText = '55555~我输了';
+		break;
+		case -1:
+		case 2:
+		result.innerText = 'Yea~我赢了';
+		break;
+		default:
+		result.innerText = res;
+	}
+	this.end();
+  }
+			
+  var user = new User('孙悟空');
+  var comp = new Comp('比克大魔王');
+  var game = new GuessGame(user,comp);
+
 </script>
 
 </body>
